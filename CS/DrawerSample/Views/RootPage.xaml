@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:dxn="clr-namespace:DevExpress.XamarinForms.Navigation;assembly=DevExpress.XamarinForms.Navigation"
+    xmlns:viewmodel="clr-namespace:DrawerSample.ViewModels"
+    xmlns:view="clr-namespace:DrawerSample.Views"
+    x:Class="DrawerSample.Views.RootPage"
+    x:Name="self"
+    Title="Navigation Drawer">
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal" VerticalOptions="Center">
+            <Button Text="Menu" Clicked="OnMenuButtonClicked"/>
+            <Label Text="Navigation Drawer" VerticalTextAlignment = "Center"/>
+        </StackLayout>
+    </NavigationPage.TitleView>
+    <ContentPage.BindingContext>
+        <viewmodel:MainViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <view:BoolToDrawerBehaviorConverter x:Key="boolToDrawerBehaviorConverter"/>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <dxn:DrawerView
+            x:Name="drawer"
+            DrawerBehavior="{Binding IsLandscapeOriented, Converter={StaticResource boolToDrawerBehaviorConverter}, Source={x:Reference self}}"
+            DrawerWidth="180"
+            IsDrawerShadowVisible="true"
+            DrawerShadowHeight="1"
+            DrawerPosition="Left"
+            DrawerContentHeight="*"
+            DrawerShadowColor="#808080">
+            <dxn:DrawerView.DrawerContent>
+                <ListView x:Name="categoryList"
+                          ItemsSource="{Binding VehiclesByMake}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextCell Text="{Binding GroupKey}"/>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </dxn:DrawerView.DrawerContent>
+            <dxn:DrawerView.MainContent>
+                <ListView BindingContext="{x:Reference categoryList}"
+                          ItemsSource="{Binding SelectedItem.Vehicles}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextCell Text="{Binding FullName}"/>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </dxn:DrawerView.MainContent>
+        </dxn:DrawerView>
+    </ContentPage.Content>
+</ContentPage>
