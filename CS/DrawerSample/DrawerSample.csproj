@@ -10,21 +10,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="4.0.0.482894" />  
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="DevExpress.XamarinForms.Navigation">
-      <HintPath>..\..\..\..\..\..\build\DevExpress.Xamarin\Binaries\DevExpress.XamarinForms.Navigation.dll</HintPath>
-    </Reference>
-    <Reference Include="DevExpress.XamarinForms.Core">
-      <HintPath>..\..\..\..\..\..\build\DevExpress.Xamarin\Binaries\DevExpress.XamarinForms.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="DevExpress.XamarinForms.Core">
-      <HintPath>..\..\..\..\..\..\native-mobile\xamarin\Binaries\DevExpress.XamarinForms.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="DevExpress.XamarinForms.Navigation">
-      <HintPath>..\..\..\..\..\..\native-mobile\xamarin\Binaries\DevExpress.XamarinForms.Navigation.dll</HintPath>
-    </Reference>
+    <PackageReference Include="DevExpress.XamarinForms.Navigation" Version="19.2.7" />
+    <PackageReference Include="Xamarin.Forms" Version="4.5.0.495" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Remove="Views\AboutPage.xaml" />

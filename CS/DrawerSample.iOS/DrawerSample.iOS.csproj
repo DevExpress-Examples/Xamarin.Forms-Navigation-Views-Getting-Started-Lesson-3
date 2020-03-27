@@ -127,15 +127,10 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="Xamarin.iOS" />
-    <Reference Include="DevExpress.Xamarin.iOS.Navigation">
-      <HintPath>..\..\..\..\..\..\native-mobile\xamarin\Binaries\DevExpress.Xamarin.iOS.Navigation.dll</HintPath>
-    </Reference>
-    <Reference Include="DevExpress.XamarinForms.Navigation.iOS">
-      <HintPath>..\..\..\..\..\..\native-mobile\xamarin\Binaries\DevExpress.XamarinForms.Navigation.iOS.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="4.0.0.482894" />
+    <PackageReference Include="DevExpress.XamarinForms.Navigation" Version="19.2.7" />
+    <PackageReference Include="Xamarin.Forms" Version="4.5.0.495" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
